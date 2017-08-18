@@ -86,6 +86,12 @@ public class Solution {
         }
     }
 }
+    static int factorial(int n){    
+  if (n == 0)    
+    return 1;    
+  else    
+    return(n * factorial(n-1));    
+ }    
  
    public static void main(String[] args) throws Exception{
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
@@ -113,13 +119,17 @@ public class Solution {
            }
        }
         long combinations = 0;
+       int result=0;
        for(Integer i: map.values()){
-           if(combinations==0){combinations=1;}
-           //System.out.println(i);
-           combinations+=i;
+           result+=i;
+          // System.out.println(result);
+       }
+       for(Integer i: map.values()){
+           result-=i;
+           combinations+=i*(result);
+          // System.out.println(result);
        }
        
-
         // Compute the final answer - the number of combinations
        
         System.out.println(combinations);
